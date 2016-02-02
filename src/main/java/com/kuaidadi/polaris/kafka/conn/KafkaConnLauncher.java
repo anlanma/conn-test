@@ -25,6 +25,10 @@ public class KafkaConnLauncher {
         launcher.init();
         launcher.start();
     }
+
+    /**
+     * 加载配置文件获
+     */
     public void init(){
         InputStream in = null;
         try {
@@ -37,8 +41,13 @@ public class KafkaConnLauncher {
         } catch (IOException e) {
             logger.error(e);
         }
+        //todo 加载文件失败
 
     }
+
+    /**
+     * 获取ip、port list，启动定时任务
+     */
     public void start(){
         Timer timer = new Timer();
         String[] addrs = prop.getProperty(ADDRS).split(";");
@@ -95,12 +104,12 @@ public class KafkaConnLauncher {
                 String host = (String) it.next();
                 Integer port = map.get(host);
                 Socket socket = null;
-                Long befor = System.currentTimeMillis();
+                Long before = System.currentTimeMillis();
                 try {
                     socket = new Socket(host,port);
-                    logger.info("Connect "+host+":"+port+" successfully,time used:"+ (System.currentTimeMillis() - befor) + " ms.");
+                    logger.info("Connect "+host+":"+port+" successfully,time used:"+ (System.currentTimeMillis() - before) + " ms.");
                 } catch (IOException e) {
-                    logger.error("Connect "+host+":"+port+" fail,time used:"+ (System.currentTimeMillis() - befor)  + " ms.",e);
+                    logger.error("Connect "+host+":"+port+" fail,time used:"+ (System.currentTimeMillis() - before)  + " ms.",e);
                 }finally {
                     if(socket != null){
                         try {

@@ -58,7 +58,7 @@
 			</resource>
 		</resources>
 
-		<finalName>kafka-conn-test</finalName>
+		<finalName>conn-test-util</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
