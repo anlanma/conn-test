@@ -32,7 +32,6 @@ public class KafkaConnLauncher {
     public void init(){
         InputStream in = null;
         try {
-
             in = KafkaConnLauncher.class.getClassLoader().getResourceAsStream(confName);
             Properties p = new Properties();
             p.load(in);
