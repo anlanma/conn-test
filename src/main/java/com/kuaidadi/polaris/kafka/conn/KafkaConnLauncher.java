@@ -27,7 +27,7 @@ public class KafkaConnLauncher {
     }
 
     /**
-     * ¼ÓÔØÅäÖÃÎÄ¼ş»ñ
+     * åŠ è½½é…ç½®æ–‡ä»¶è·
      */
     public void init(){
         InputStream in = null;
@@ -41,12 +41,12 @@ public class KafkaConnLauncher {
         } catch (IOException e) {
             logger.error(e);
         }
-        //todo ¼ÓÔØÎÄ¼şÊ§°Ü
+        //todo åŠ è½½æ–‡ä»¶å¤±è´¥
 
     }
 
     /**
-     * »ñÈ¡ip¡¢port list£¬Æô¶¯¶¨Ê±ÈÎÎñ
+     * è·å–ipã€port listï¼Œå¯åŠ¨å®šæ—¶ä»»åŠ¡
      */
     public void start(){
         Timer timer = new Timer();
@@ -63,7 +63,7 @@ public class KafkaConnLauncher {
             return null;
         }
         Map<String,Integer> map = new HashMap<String, Integer>();
-        //È¥³ı¿Õ´®
+        //å»é™¤ç©ºä¸²
         int i = 0;
         for(String addr : addrs){
             if(logger.isDebugEnabled()){
