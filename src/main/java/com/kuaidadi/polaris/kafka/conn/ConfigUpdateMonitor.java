@@ -17,13 +17,14 @@ import java.util.TimerTask;
 public class ConfigUpdateMonitor {
     private static Logger logger = Logger.getLogger(ConfigUpdateMonitor.class);
 
+    private static final Timer timer = new Timer();
+
     private static long lastUpdTime;
 
     private static String path;
 
     public static void start(String p){
         path = p;
-        Timer timer = new Timer();
         timer.schedule(new MonitorTask(),1000,1000);
     }
 
@@ -35,6 +36,10 @@ public class ConfigUpdateMonitor {
             e.printStackTrace();
         }
         KafkaConnLauncher.updateAddr(p);
+    }
+
+    public static void stop(){
+        timer.cancel();
     }
 
 
