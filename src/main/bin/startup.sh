@@ -1,8 +1,4 @@
 #!/bin/bash
-if [ $# -lt 2 ]; then
-    echo "2 parameters are required. the first one is node id, the second one is node type."
-    exit 1
-fi
 
 cd `dirname $0`
 BIN_DIR=`pwd`

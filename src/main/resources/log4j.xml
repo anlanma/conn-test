@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration>
-    <appender name="connTestLogger" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="Encoding" value="UTF-8"/>
-        <!--<param name="File" value="E:\\connTest.log"/>-->
+    <!--<appender name="connTestLogger" class="org.apache.log4j.DailyRollingFileAppender">-->
+        <!--<param name="Encoding" value="UTF-8"/>-->
+        <!--&lt;!&ndash;<param name="File" value="E:\\connTest.log"/>&ndash;&gt;-->
+        <!--<param name="File" value="${log.dir}/launcher.log"/>-->
+        <!--<param name="Append" value="true"/>-->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd"/>-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss},%m%n"/>-->
+        <!--</layout>-->
+    <!--</appender>-->
+
+    <appender name="connTestLogger"
+              class="org.apache.log4j.RollingFileAppender">
+        <param name="threshold" value="debug" />
         <param name="File" value="${log.dir}/launcher.log"/>
-        <param name="Append" value="true"/>
-        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="maxFileSize" value="1MB" />
+        <param name="maxBackupIndex" value="5" />
+        <param name="append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss},%m%n"/>
         </layout>
@@ -16,7 +28,7 @@
         <param name="Encoding" value="UTF-8"/>
         <param name="Target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d %-4r [%t] (%F:%L%) %-5p -%m%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss},%m%n"/>
         </layout>
     </appender>
 

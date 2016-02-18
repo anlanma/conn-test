@@ -89,6 +89,7 @@ public class KafkaConnLauncher {
             String[] parts = addr.split(":");
             if (parts.length != 2) {
                 logger.error("Invalid ip and port:" + addr);
+                return map;
             }
             String ip = parts[0];
             String port = parts[1];
